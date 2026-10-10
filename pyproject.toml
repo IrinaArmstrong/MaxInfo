@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maxinfo"
+version = "0.1.0"
+description = "MaxInfo: training-free key-frame selection via the maximum-volume principle"
+requires-python = ">=3.8"
+dependencies = ["numpy", "scipy", "pillow"]
+
+[project.optional-dependencies]
+clip = ["torch", "transformers"]
+
+# This folder *is* the package, so map the package name to the current dir.
+[tool.setuptools]
+packages = [
+    "maxinfo",
+    "maxinfo.integrations",
+    "maxinfo._vendor",
+    "maxinfo._vendor.maxvolpy",
+]
+package-dir = { "maxinfo" = "." }
